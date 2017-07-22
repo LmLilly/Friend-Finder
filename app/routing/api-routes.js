@@ -19,20 +19,20 @@
 			var matchedScore = 100; //largest value difference
 
 			//function to add array
-			function add(a,b){
-				return a + b 
-			}
+            function add(a,b){
+            	return parseInt(a) + parseInt(b) 
+            }
 
 			//Get total score for each person in PERSON object
 			for(var i = 0; i < tableData.length; i++){
 				//Get scores in people.scores
-				var personScore = tableData[i].scores
+				var personScore = tableData[i].scores;
 				var sum = personScore.reduce(add, 0);
 				currentScores.push(sum)
 			}
 
 			//Get total score for new entry
-			var newFriendScore = newFriend[0].scores;
+            var newFriendScore = newFriend.scores;
 			var newFriendSum = newFriendScore.reduce(add, 0);
 
 			//Now, compare each score in currentScores (all of the friend's scores) with newFriendSum (the new entry's score)
@@ -46,7 +46,7 @@
 			}
 			//Get name of matched person
 			var matchedPerson = tableDta[matchedFriend];
-			res.json(matchedPerson);1		
+			res.json(matchedPerson);	
         });
 
     };
